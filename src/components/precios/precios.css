@@ -1,0 +1,14 @@
+.contenedor-buscador{
+    margin: 10px !important;
+}
+
+.buscador{
+    padding: 20px !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.contenedor-tabla{
+    margin:0 20px !important;
+}

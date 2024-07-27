@@ -1,0 +1,56 @@
+@keyframes logo-girando {
+    0%{
+        background-image: url(../../assets/dibujo.svg);
+        transform: rotate(0deg);
+    }
+
+    50%{
+        background-image: url(../../assets/dibujo2.svg);
+        transform: rotate(360deg);
+    }
+
+    100%{
+        background-image: url(../../assets/dibujo.svg);
+        transform: rotate(720deg);
+    }
+}
+
+.logo{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    animation: logo-girando 15s linear infinite;
+}
+
+.navbar-contenedor{
+    background-color: #f8a7ff !important;
+    justify-content: space-evenly !important;
+}
+
+.link-nabvar{
+    font-weight: bold !important;
+    font-size: 20px !important;
+    color: #FF29F9 !important;
+}
+
+.nav-link{
+    color: #FF29F9 !important;
+}
+
+.enlace-user{
+    border-radius: 50%;
+    padding: 5px;
+    color: white;
+    transition: all 1s ease;
+}
+
+.enlace-user:hover{
+    transform: rotateY(180deg);
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    color:#F8A7FF;
+}
+
