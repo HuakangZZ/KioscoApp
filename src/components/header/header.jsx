@@ -7,12 +7,12 @@ import logo from '../../assets/dibujo.svg'
 import { CiUser } from 'react-icons/ci';
 import { Link, Outlet } from 'react-router-dom';
 
-function Header() {
-    return (
-        <div>
+function mostrarHeader(userLogin) {
+    if (userLogin) {
+        return <div>
             <Navbar expand="lg" className="navbar-contenedor">
             <Container style={{margin: 0}}>
-                <Link to={"/"}><div className='logo'></div></Link>
+                <Link to={"/home"}><div className='logo'></div></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -32,11 +32,19 @@ function Header() {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
-            <a href="" className='enlace-user'>
-                <CiUser size="70px"/>    
-            </a>
+            <Link className='enlace-user'>
+                <CiUser size="70px"/>
+            </Link>
             </Navbar>
             <Outlet/>
+        </div>
+    }
+}
+
+function Header({userLogin}) {
+    return (
+        <div>
+            {mostrarHeader(userLogin)}
         </div>
         
     )

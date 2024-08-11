@@ -1,0 +1,49 @@
+.contenedor-campos-login{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 10px;
+}
+
+.contenedor-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(241, 171, 255, 0.849),rgba(224, 85, 252, 0.849) , rgb(41, 0, 64) );
+    background-size: 300% 300%;
+    animation: animacionFondo 5s ease infinite;
+}
+
+.color{
+    color: white;
+}
+
+@keyframes animacionFondo {
+
+    0%{
+        background-position: 100% 50%;
+    }
+
+    50%{
+        background-position: 0% 50%;
+    }
+
+    100%{
+        background-position: 100% 50%;
+    }
+
+}
+
+.input{
+    padding: 5px;
+    border-radius: 10px;
+    border: purple 2px solid;
+}
+
+.color-boton{
+    background-color: #fe54f0 !important;
+    border: 2px solid#a13598 !important;
+}

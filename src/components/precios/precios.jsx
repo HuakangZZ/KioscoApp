@@ -9,13 +9,14 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Precios() {
+function Precios({cargarNavBar}) {
     let productos = ProductoService.getAllProducts();
 
     const obtenerProductoPorCodigo = (e) =>{
         console.log(ProductoService.getProductoPorCodigo(e));
     }
 
+    cargarNavBar(true)
     
     return (
         <div>
