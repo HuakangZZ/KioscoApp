@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 function PantallaBuenLogueo() {
   return (
     <div className='contenedor-botones'>
-      <Link to={""} className='boton-seccion'>Listado de Precios</Link>
-      <Link to={""} className='boton-seccion'>Agregar Producto</Link>
+      <Link to={"/precios"} className='boton-seccion'>Listado de Precios</Link>
+      <Link to={"/agregar-producto"} className='boton-seccion'>Agregar Producto</Link>
       <Link to={""} className='boton-seccion'>Consultar Proveedor</Link>
       <Link to={""} className='boton-seccion'>Listado de Precios</Link>
     </div>

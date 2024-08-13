@@ -1,5 +1,5 @@
 .contenedor-botones{
-    height: 100vh;
+    height: 80vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -8,13 +8,18 @@
 
 .boton-seccion{
     text-align: center;
-    background-color: #FF23BD;
+    background-color: #fc4fd0;
     width: 50%;
     height: 50%;
     margin: 0 auto;
     text-decoration: none;
     color: white;
-    font-weight: bold;
     font-size: 27px;
     padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Kavoon", serif;
 }
+

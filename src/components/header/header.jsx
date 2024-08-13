@@ -15,7 +15,7 @@ function mostrarHeader(userLogin) {
                 <Link to={"/home"}><div className='logo'></div></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
+                <Nav className="separacion">
                     <Link to={"/precios"} className='link-nabvar nav-link'>Precios</Link>
                     <Link to={"/calculadora"} className='link-nabvar nav-link'>Calculadora</Link>
                     <NavDropdown title="Acciones" id="basic-nav-dropdown" className='link-nabvar'>

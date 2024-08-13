@@ -36,7 +36,7 @@
 }
 
 .nav-link{
-    color: #FF29F9 !important;
+    color: white !important;
 }
 
 .enlace-user{
@@ -52,5 +52,9 @@
     border-radius: 50%;
     padding: 5px;
     color:#F8A7FF;
+}
+
+.separacion{
+    margin-left: 50px;
 }
 

@@ -66,21 +66,22 @@
 }
 
 .flecha{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     box-shadow: 2px 2px 0 rgb(255, 255, 255);
     transform: rotate(135deg);
-    background-color: red;
 }
 
 .contenedor-flecha{
     display: flex;
+    margin-left: 100px;
+    width: 30%;
+    height: 100%;
     transition: all .5s ease;
-    justify-content: center;
 }
 
 .contenedor-flecha:hover{
-    margin-right: 40px;
+    margin-left: 50px;
 }
 
 .contenedor-titulo{

@@ -1,14 +1,44 @@
+.contenedor-precios{
+    padding-top: 20px;
+}
+
 .contenedor-buscador{
     margin: 10px !important;
 }
 
 .buscador{
+    width: 50%;
     padding: 20px !important;
     text-align: center;
     font-weight: bold;
     font-size: 30px;
+    background-color: #FFEFFF;
+    color: #D34EA0 !important;
+}
+
+.buscador::placeholder{
+    color: #D34EA0;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
 }
 
 .contenedor-tabla{
-    margin:0 20px !important;
+    padding:20px !important;
+}
+
+.head-tabla{
+    text-align: center;
+    background-color: #F8A7FF !important;
+    font-size: 30px;
+    color: white !important;
+    border: 1px #D34EA0 solid;
+}
+
+td{
+    text-align: center;
+    border: 1px black solid;
+    font-size: 20px;
 }
