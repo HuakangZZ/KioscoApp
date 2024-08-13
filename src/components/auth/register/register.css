@@ -24,11 +24,11 @@
 
 .titulo-registro{
     text-align: center;
-    padding-top: 50px;
+    color: white;
 }
 
 .contenedor-campos-registro{
-    margin-top: 100px;
+    margin-top: 50px;
     height: 50vh;
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -38,8 +38,8 @@
 }
 
 .campo-registro{
-    width: 50%;
-    padding: 15px;
+    width: 70%;
+    padding: 14px;
     border-radius: 20px;
     background-color: #EAC8E9;
     color: #D34EA0;
@@ -62,5 +62,29 @@
 }
 
 .titulo-campo-registro{
-    
+    color: white;
+}
+
+.flecha{
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 2px 0 rgb(255, 255, 255);
+    transform: rotate(135deg);
+    background-color: red;
+}
+
+.contenedor-flecha{
+    display: flex;
+    transition: all .5s ease;
+    justify-content: center;
+}
+
+.contenedor-flecha:hover{
+    margin-right: 40px;
+}
+
+.contenedor-titulo{
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }

@@ -1,10 +1,21 @@
 import React from 'react'
 import './register.css'
+import { Link } from 'react-router-dom'
 
 function Register() {
   return (
     <div className='contenido-registro'>
-        <h2 className='titulo-registro'>BIENVENIDO AL REGISTRO</h2>
+        <div className='contenedor-titulo'>
+            <Link to={"/"} className='contenedor-flecha'>
+                    <div className='flecha'></div>
+                    <div className='flecha'></div>
+                </Link>
+            <h2 className='titulo-registro'>
+                BIENVENIDO AL REGISTRO
+            </h2>   
+        </div>
+            
+        
         <div className='contenedor-campos-registro'>
             <div>
                 <h3 className="titulo-campo-registro">Nombre</h3>
