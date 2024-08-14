@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import { MdDelete, MdEdit } from "react-icons/md";
 
 
 const producto1 = {
@@ -28,16 +28,67 @@ const producto2 = {
     ultimaModificacion:[2024,5,8],
     codigoDeBarras: 1234567
 }
+const producto3 = {
+    id:3,
+    nombre: "pan",
+    stock: 2,
+    precio:250,
+    ultimaModificacion:[2024,5,8],
+    codigoDeBarras: 1234567
+}
+const producto4 = {
+    id:4,
+    nombre: "pan",
+    stock: 2,
+    precio:250,
+    ultimaModificacion:[2024,5,8],
+    codigoDeBarras: 1234567
+}
+const producto5 = {
+    id:5,
+    nombre: "pan",
+    stock: 2,
+    precio:250,
+    ultimaModificacion:[2024,5,8],
+    codigoDeBarras: 1234567
+}
+const producto6 = {
+    id:6,
+    nombre: "pan",
+    stock: 2,
+    precio:250,
+    ultimaModificacion:[2024,5,8],
+    codigoDeBarras: 1234567
+}
+const producto7 = {
+    id:7,
+    nombre: "pan",
+    stock: 2,
+    precio:250,
+    ultimaModificacion:[2024,5,8],
+    codigoDeBarras: 1234567
+}
+
 
 
 function Precios({cargarNavBar}) {
-    let productos = [producto1,producto2,producto1,producto2,producto1,producto2,producto1,producto2,producto1,producto2,producto1,producto2];
+    let productos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
 
     const obtenerProductoPorCodigo = (e) =>{
         console.log(ProductoService.getProductoPorCodigo(e));
     }
 
-    cargarNavBar(true)
+    const editar = () =>{
+        console.log('Edito')
+    }
+
+    const eliminar = () =>{
+        console.log('Elimino')
+    }
+
+    useEffect(()=>{
+        cargarNavBar(true);
+    },[cargarNavBar])
     
     return (
         <div className='contenedor-precios'>
@@ -53,6 +104,13 @@ function Precios({cargarNavBar}) {
                     <button onClick={()=>obtenerProductoPorCodigo(1234567)}>BUSCAR</button>
                 </Form>
             </div>
+            <div className='contenedor-select'>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
             <div className='contenedor-tabla'>
                 <Table>
                     <thead>
@@ -62,6 +120,7 @@ function Precios({cargarNavBar}) {
                             <th className='head-tabla'>Precio</th>
                             <th className='head-tabla'>Ultima Modificación</th>
                             <th className='head-tabla'>Codigo De Barras</th>
+                            <th className='head-tabla'>Acciones</th>
                         </tr>
                     </thead>
                                 
@@ -70,9 +129,13 @@ function Precios({cargarNavBar}) {
                         <tr key={producto.id}>
                             <td>{producto.id}</td>
                             <td>{producto.nombre}</td>
-                            <td>{producto.precio}</td>
+                            <td>${producto.precio}</td>
                             <td>{producto.ultimaModificacion[2] + "/" + producto.ultimaModificacion[1] + "/" + producto.ultimaModificacion[0]}</td>
                             <td>{producto.codigoDeBarras}</td>
+                            <td className='contenedor-acciones'>
+                                <button className='accion-boton-edit' onClick={editar}><MdEdit></MdEdit></button>
+                                <button className='accion-boton-delete' onClick={eliminar}><MdDelete></MdDelete></button>
+                            </td>
                         </tr>))}
                     </tbody>
 

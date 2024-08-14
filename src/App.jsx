@@ -8,6 +8,7 @@ import Login from './components/auth/login/login'
 import { useState } from 'react'
 import Register from './components/auth/register/register'
 import AgregarProducto from './components/agregar-producto/agregar-producto'
+import Calculadora from './components/calculadora/calculadora'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/home" element={<Bienvenida cargarNavBar={loguearse} valor={valor}/>}/>
           <Route path="/precios" element={<Precios cargarNavBar={loguearse}/>}/>
           <Route path='/agregar-producto' element={<AgregarProducto cargarNavBar={loguearse}/>}/>
+          <Route path='/calculadora' element={<Calculadora cargarNavBar={loguearse}/>}/>
         </Routes>
       </BrowserRouter>
       

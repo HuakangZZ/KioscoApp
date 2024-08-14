@@ -42,3 +42,40 @@ td{
     border: 1px black solid;
     font-size: 20px;
 }
+
+.accion-boton-edit, .accion-boton-delete{
+    border: none;
+    background-color: transparent;
+    transition: all .5s ease;
+    width: 50%;
+}
+
+.accion-boton-edit:hover, .accion-boton-delete:hover{
+    background-color: #D34EA0;
+    color: white;
+}
+
+.contenedor-select{
+    text-align: center;
+}
+
+.select{
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F8A7FF;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.select-opcion{
+    cursor: pointer !important;
+    font-weight: bold;
+}
+
+.select-opcion:nth-child(){
+    background-color: #D34EA0;
+}

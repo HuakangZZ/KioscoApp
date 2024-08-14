@@ -4,7 +4,7 @@ import PantallaMalLogueo from '../auth/pantallaMalLogue/pantallaMalLogueo';
 
 
 function pantalla(boolean){
-  if (boolean) {
+  if (true) {
     return <PantallaBuenLogueo/>
   }
   else{
