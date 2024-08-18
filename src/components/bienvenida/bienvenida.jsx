@@ -4,7 +4,7 @@ import PantallaMalLogueo from '../auth/pantallaMalLogue/pantallaMalLogueo';
 
 
 function pantalla(boolean){
-  if (true) {
+  if (boolean) {
     return <PantallaBuenLogueo/>
   }
   else{
@@ -15,8 +15,11 @@ function pantalla(boolean){
 
 function Bienvenida({cargarNavBar, valor}) {
   useEffect(() => {
-    cargarNavBar(true);
+    if (valor) {
+      cargarNavBar(true);
+    }
   },[cargarNavBar]);
+  
   return (
     <div>
         {pantalla(valor)}

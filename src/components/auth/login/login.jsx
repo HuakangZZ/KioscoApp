@@ -5,11 +5,41 @@ import { CiUser } from 'react-icons/ci'
 import LoginService from '../../../services/Login'
 import { Button } from 'react-bootstrap'
 
+function Modal({valorModal, mostrarModal}){
+    if (valorModal) {
+        return <div className="contenedorDialog">
+                <div className='alerta' id="alert-dialog">
+                    <p>¡ALGO SALIO MAL!</p>
+                    <Button variant='primary' className='color-boton' onClick={() =>{mostrarModal(false)}}>Reintentar</Button>
+                </div>
+            </div>
+            
+            
+    }
+}
+
+function BotonCorrecto({boolean, iniciarSecion, username, password, mostrarModal}) {
+    if (boolean) {
+        return <Link to={"/home"} id='boton-login'>
+                    <Button onClick={() => {iniciarSecion(username,password)}} variant='primary' className='color-boton'>Loguearse</Button>
+                </Link>
+    }
+    else{
+        return <Link id='boton-login'>
+                <Button onClick={() => {mostrarModal(true)}} variant='primary' className='color-boton'>Loguearse</Button>
+        </Link>
+    }
+}
 
 function Login({loguearse, setValor}) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [mostrar, setMostrar] = useState(false);
+
+    const mostrarModal = (cargarValor) =>{
+        setMostrar(cargarValor)
+    }
 
     const ponerUsername = (valor) =>{
         setUsername(valor)
@@ -27,7 +57,7 @@ function Login({loguearse, setValor}) {
         loguearse(false);
       },[loguearse]);
     
-
+    
     return (
         <div className='contenedor-login'>
             <div>
@@ -38,12 +68,12 @@ function Login({loguearse, setValor}) {
                 <input type="text" placeholder='Nombre de usuario' className='input' onChange={(e) => ponerUsername(e.target.value)}/>
                 <input type="text" placeholder='Contraseña' className='input' onChange={(e) => ponerPassword(e.target.value)}/>
             </div>
-            <Link to={"/home"}>
-                <Button onClick={() => {iniciarSecion(username,password)}} variant='primary' className='color-boton'>Loguearse</Button>
-            </Link>
+            {<BotonCorrecto boolean={false} iniciarSecion={iniciarSecion} username={username} password={password} mostrarModal={mostrarModal}/>}
             <Link to={"/register"}>
                 <Button variant='primary' className='color-boton'>Registrarse</Button>
             </Link>
+            <Modal valorModal={mostrar} mostrarModal={mostrarModal}/>
+            
         </div>
     )
 }
