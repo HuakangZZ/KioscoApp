@@ -55,27 +55,61 @@ td{
     color: white;
 }
 
-.contenedor-select{
-    text-align: center;
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .select{
-    padding: 10px;
-    width: 50%;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #F8A7FF;
+    border: 1px white solid;
+    background-color: #D34EA0;
     color: white;
-    font-weight: bold;
-    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+}
+.rotar-icono{
+    transform: rotate(180deg);
+}
+
+.select:hover{
+    background-color: #b8448b;
+    box-shadow: 0 0 10px 5px white;
+}
+
+.menu{
+    border: 1px white solid;
+    width: 50%;
+    background-color: #D34EA0;
+    padding: 0;
+    list-style: none;
+    border-radius: 10px;
+    color: white;
+    position: absolute;
+    margin-top: 240px;
+}
+
+.menu li{
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.menu li:hover{
+    background-color: #b6438a;
     cursor: pointer;
 }
 
-.select-opcion{
-    cursor: pointer !important;
-    font-weight: bold;
+.active{
+    background-color: #b6438a;
+    border: 1px white solid;
 }
 
-.select-opcion:nth-child(){
-    background-color: #D34EA0;
-}

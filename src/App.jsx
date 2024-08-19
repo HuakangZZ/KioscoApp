@@ -14,7 +14,6 @@ import Calculadora from './components/calculadora/calculadora'
 function App() {
 
   const [userLogin, setUserLogin] = useState(false);
-  const [valor, setValue] = useState(false);
 
   const loguearse = (datosDelLog) => {
     setUserLogin(datosDelLog);
@@ -30,9 +29,9 @@ function App() {
       <BrowserRouter>
         <Header userLogin={userLogin}/>
         <Routes>
-          <Route path="/" element={<Login loguearse={loguearse} setValor={setValor}/>}/>
+          <Route path="/" element={<Login loguearse={loguearse}/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/home" element={<Bienvenida cargarNavBar={loguearse} valor={valor}/>}/>
+          <Route path="/home" element={<Bienvenida cargarNavBar={loguearse}/>}/>
           <Route path="/precios" element={<Precios cargarNavBar={loguearse}/>}/>
           <Route path='/agregar-producto' element={<AgregarProducto cargarNavBar={loguearse}/>}/>
           <Route path='/calculadora' element={<Calculadora cargarNavBar={loguearse}/>}/>

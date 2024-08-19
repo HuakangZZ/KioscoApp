@@ -9,7 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { MdDelete, MdEdit } from "react-icons/md";
-
+import { IoIosArrowDown } from 'react-icons/io';
 
 const producto1 = {
     id:1,
@@ -69,6 +69,12 @@ const producto7 = {
     codigoDeBarras: 1234567
 }
 
+function cambiarNombre(nombre){
+    const selected = document.getElementsByClassName('selected');
+    if(nombre != null && nombre != undefined){
+        selected[0].textContent = nombre
+    }
+}
 
 
 function Precios({cargarNavBar}) {
@@ -104,11 +110,16 @@ function Precios({cargarNavBar}) {
                     <button onClick={()=>obtenerProductoPorCodigo(1234567)}>BUSCAR</button>
                 </Form>
             </div>
-            <div className='contenedor-select'>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+            <div className="dropdown">
+                <div className="select" onClick={(e) =>{e.target.children[1].classList.toggle('rotar-icono')}}>
+                    <span className="selected">--Seleccione un filtro--</span>
+                    <IoIosArrowDown></IoIosArrowDown>
+                </div>
+                <ul className="menu">
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 1</li>
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 2</li>
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 3</li>
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 4</li>
                 </ul>
             </div>
             <div className='contenedor-tabla'>
