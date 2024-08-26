@@ -76,9 +76,29 @@ function cambiarNombre(nombre){
     }
 }
 
+function mostrarYEsconderMenu(e){
+    if(!e?.target?.children[1]?.classList.contains('rotar-icono-arriba')){
+        e?.target?.children[1]?.classList.remove('rotar-icono-abajo')
+        e?.target?.children[1]?.classList.add('rotar-icono-arriba');
+        opciones?.classList.add('mostrar-opciones')
+        opciones?.classList.remove('esconder-opciones-animacion');
+        opciones?.classList.remove('esconder-opciones')
+    }
+    else{
+        opciones?.classList.remove('mostrar-opciones');
+        opciones?.classList.add('esconder-opciones-animacion');
+        setTimeout(() => {
+            opciones?.classList.add('esconder-opciones');
+        }, 400);
+        e?.target?.children[1]?.classList.remove('rotar-icono-arriba');
+        e?.target?.children[1]?.classList.add('rotar-icono-abajo')
+    }
+}
+
 
 function Precios({cargarNavBar}) {
     let productos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
+    const opciones = document.getElementById('opciones');
 
     const obtenerProductoPorCodigo = (e) =>{
         console.log(ProductoService.getProductoPorCodigo(e));
@@ -107,19 +127,20 @@ function Precios({cargarNavBar}) {
                         className=" mr-sm-2  buscador"
                         />
                     </Col>
-                    <button onClick={()=>obtenerProductoPorCodigo(1234567)}>BUSCAR</button>
+                    <button className='buscar-precio' onClick={()=>obtenerProductoPorCodigo(1234567)}>BUSCAR</button>
                 </Form>
             </div>
-            <div className="dropdown">
-                <div className="select" onClick={(e) =>{e.target.children[1].classList.toggle('rotar-icono')}}>
+            <div className="contenedor-select">
+                <div className="select" onClick={(e) =>{mostrarYEsconderMenu(e)}}>
                     <span className="selected">--Seleccione un filtro--</span>
                     <IoIosArrowDown></IoIosArrowDown>
                 </div>
-                <ul className="menu">
-                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 1</li>
-                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 2</li>
-                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 3</li>
-                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Filtro 4</li>
+                <ul id='opciones' className="menu esconder-opciones">
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent);}}>Vinos</li>
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Fiambres</li>
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Gaseosas</li>
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Cervezas</li>
+                    <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Variado</li>
                 </ul>
             </div>
             <div className='contenedor-tabla'>

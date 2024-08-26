@@ -4,6 +4,7 @@
 
 .contenedor-buscador{
     margin: 10px !important;
+    text-align: center;
 }
 
 .buscador{
@@ -27,6 +28,7 @@
 
 .contenedor-tabla{
     padding:20px !important;
+    margin-top: 50px;
 }
 
 .head-tabla{
@@ -55,11 +57,13 @@ td{
     color: white;
 }
 
-.dropdown{
+.contenedor-select{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    width: 100%;
 }
 
 .select{
@@ -71,30 +75,52 @@ td{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 30%;
     cursor: pointer;
-    position: absolute;
     z-index: 1;
 }
-.rotar-icono{
+.rotar-icono-arriba{
+    animation: girarIconoArriba .5s ease;
     transform: rotate(180deg);
+}
+
+.rotar-icono-abajo{
+    animation: girarIconoAbajo .5s ease;
+    transform: rotate(0deg);
+}
+
+@keyframes girarIconoArriba{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes girarIconoAbajo{
+    0%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
 }
 
 .select:hover{
     background-color: #b8448b;
-    box-shadow: 0 0 10px 5px white;
 }
 
 .menu{
+    animation: all .5 ease-in;
     border: 1px white solid;
-    width: 50%;
+    width: 30%;
     background-color: #D34EA0;
     padding: 0;
     list-style: none;
     border-radius: 10px;
     color: white;
-    position: absolute;
-    margin-top: 240px;
+    overflow: auto;
 }
 
 .menu li{
@@ -113,3 +139,47 @@ td{
     border: 1px white solid;
 }
 
+.mostrar-opciones{
+    display: block;
+    animation: mostrar .5s ease-in;
+    
+}
+
+@keyframes mostrar {
+    0%{
+        opacity: 0%;
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+.esconder-opciones-animacion{
+    animation: esconder .5s ease-out;
+}
+
+.esconder-opciones{
+    display: none;
+}
+
+@keyframes esconder {
+    0%{
+        opacity: 100%;
+    }
+
+    100%{
+        opacity: 0%;
+    }
+}
+
+.buscar-precio{
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    background-color: #F8A7FF;
+    color:white;
+    border: none;
+    border-bottom-left-radius:  10px;
+    border-bottom-right-radius:  10px;
+}
