@@ -121,6 +121,7 @@ td{
     border-radius: 10px;
     color: white;
     overflow: auto;
+    margin-right: 6.5rem;
 }
 
 .menu li{
@@ -182,4 +183,39 @@ td{
     border: none;
     border-bottom-left-radius:  10px;
     border-bottom-right-radius:  10px;
+}
+
+.contenedor-botones-select-limpiar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap:2.5rem;
+}
+
+.boton-refresh{
+    background-color: #D34EA0;
+    border: 1px white solid;
+    border-radius: 5px;
+    color: white;
+}
+
+@keyframes rotarIconoRefresh {
+    0%{
+
+        transform: rotateZ(0deg);
+
+    }
+    100%{
+
+        transform: rotateZ(-180deg);
+
+    }
+}
+.animacion-icono-refresh{
+    animation: rotarIconoRefresh .5s ease !important;
+}
+
+.svg-refresh{
+    width: 3rem;
+    height: 3rem;
 }

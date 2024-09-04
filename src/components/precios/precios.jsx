@@ -10,6 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { MdDelete, MdEdit } from "react-icons/md";
 import { IoIosArrowDown } from 'react-icons/io';
+import { FiRefreshCcw } from 'react-icons/fi';
 
 const producto1 = {
     id:1,
@@ -70,16 +71,16 @@ const producto7 = {
 }
 
 function cambiarNombre(nombre){
-    const selected = document.getElementsByClassName('selected');
+    const select = document.getElementsByClassName('select');
     if(nombre != null && nombre != undefined){
-        selected[0].textContent = nombre
+        select[0].textContent = nombre
     }
 }
 
 function mostrarYEsconderMenu(e){
-    if(!e?.target?.children[1]?.classList.contains('rotar-icono-arriba')){
-        e?.target?.children[1]?.classList.remove('rotar-icono-abajo')
-        e?.target?.children[1]?.classList.add('rotar-icono-arriba');
+    if(!e?.target?.children[0]?.classList.contains('rotar-icono-arriba')){
+        e?.target?.children[0]?.classList.remove('rotar-icono-abajo')
+        e?.target?.children[0]?.classList.add('rotar-icono-arriba');
         opciones?.classList.add('mostrar-opciones')
         opciones?.classList.remove('esconder-opciones-animacion');
         opciones?.classList.remove('esconder-opciones')
@@ -90,14 +91,32 @@ function mostrarYEsconderMenu(e){
         setTimeout(() => {
             opciones?.classList.add('esconder-opciones');
         }, 400);
-        e?.target?.children[1]?.classList.remove('rotar-icono-arriba');
-        e?.target?.children[1]?.classList.add('rotar-icono-abajo')
+        e?.target?.children[0]?.classList.remove('rotar-icono-arriba');
+        e?.target?.children[0]?.classList.add('rotar-icono-abajo')
+    }
+}
+
+
+function ponerAnimacionIconoRefresh(){
+    const icono = document.getElementById('refresh')
+
+    if (icono != null && icono != undefined) {
+        icono.classList.add('animacion-icono-refresh')
+    }
+}
+
+function sacarAnimacionIconoRefresh(){
+    const icono = document.getElementById('refresh')
+
+    if (icono != null && icono != undefined && icono.classList.contains('animacion-icono-refresh')) {
+        icono.classList.remove('animacion-icono-refresh')
     }
 }
 
 
 function Precios({cargarNavBar}) {
-    let productos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
+    //let productos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
+    const productos = ProductoService.getAllProducts();
     const opciones = document.getElementById('opciones');
 
     const obtenerProductoPorCodigo = (e) =>{
@@ -123,7 +142,7 @@ function Precios({cargarNavBar}) {
                     <Col className='centrar'>
                         <Form.Control
                         type="text"
-                        placeholder="INSERTE EL CODIGO DE BARRAS"
+                        placeholder="CODIGO DE BARRAS / NOMBRE / CATEGORIA"
                         className=" mr-sm-2  buscador"
                         />
                     </Col>
@@ -131,10 +150,24 @@ function Precios({cargarNavBar}) {
                 </Form>
             </div>
             <div className="contenedor-select">
-                <div className="select" onClick={(e) =>{mostrarYEsconderMenu(e)}}>
-                    <span className="selected">--Seleccione un filtro--</span>
-                    <IoIosArrowDown></IoIosArrowDown>
+                <div className='contenedor-botones-select-limpiar'>
+                    {/*
+                        <button className="select" onClick={(e) =>{mostrarYEsconderMenu(e)}}>
+                            --Seleccione un filtro--
+                            <IoIosArrowDown></IoIosArrowDown>
+                        </button>
+                        <button className='boton-refresh' onMouseEnter={() =>{ponerAnimacionIconoRefresh()}} onMouseLeave={() =>{sacarAnimacionIconoRefresh()}}
+                                onClick={() =>{
+                                    const select = document.getElementsByClassName('select');
+                                    if(select != null && select != undefined){
+                                        select[0].textContent = "--Seleccione un filtro--"
+                                    }
+                                }}>
+                            <FiRefreshCcw id='refresh' className='svg-refresh'/>
+                        </button>
+                    */}
                 </div>
+                
                 <ul id='opciones' className="menu esconder-opciones">
                     <li onClick={(e)=>{cambiarNombre(e.target.textContent);}}>Vinos</li>
                     <li onClick={(e)=>{cambiarNombre(e.target.textContent)}}>Fiambres</li>
@@ -163,7 +196,7 @@ function Precios({cargarNavBar}) {
                             <td>{producto.nombre}</td>
                             <td>${producto.precio}</td>
                             <td>{producto.ultimaModificacion[2] + "/" + producto.ultimaModificacion[1] + "/" + producto.ultimaModificacion[0]}</td>
-                            <td>{producto.codigoDeBarras}</td>
+                            <td>{producto.codigoBarras}</td>
                             <td className='contenedor-acciones'>
                                 <button className='accion-boton-edit' onClick={editar}><MdEdit></MdEdit></button>
                                 <button className='accion-boton-delete' onClick={eliminar}><MdDelete></MdDelete></button>
