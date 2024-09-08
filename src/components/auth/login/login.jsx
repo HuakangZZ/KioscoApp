@@ -9,6 +9,7 @@ function Modal({valorModal, mostrarModal}){
     if (valorModal) {
         return <div className="contenedorDialog">
                 <div className='alerta' id="alert-dialog">
+                    <div className='animacion-alerta'></div>
                     <p>¡ALGO SALIO MAL!</p>
                     <Button variant='primary' className='color-boton' onClick={() =>{mostrarModal(false)}}>Reintentar</Button>
                 </div>
@@ -68,10 +69,12 @@ function Login({loguearse, setValor}) {
                 <input type="text" placeholder='Nombre de usuario' className='input' onChange={(e) => ponerUsername(e.target.value)}/>
                 <input type="text" placeholder='Contraseña' className='input' onChange={(e) => ponerPassword(e.target.value)}/>
             </div>
-            {<BotonCorrecto boolean={false} iniciarSecion={iniciarSecion} username={username} password={password} mostrarModal={mostrarModal}/>}
-            <Link to={"/register"}>
-                <Button variant='primary' className='color-boton'>Registrarse</Button>
-            </Link>
+            <div className='contenedor-botones-login'>
+                {<BotonCorrecto boolean={false} iniciarSecion={iniciarSecion} username={username} password={password} mostrarModal={mostrarModal}/>}
+                <Link to={"/register"}>
+                    <Button variant='primary' className='color-boton'>Registrarse</Button>
+                </Link>
+            </div>
             <Modal valorModal={mostrar} mostrarModal={mostrarModal}/>
             
         </div>

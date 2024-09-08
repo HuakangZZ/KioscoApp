@@ -46,6 +46,14 @@
 .color-boton{
     background-color: #fe54f0 !important;
     border: 2px solid#a13598 !important;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.contenedor-botones-login{
+    display: flex;
+    gap: 2rem;
 }
 
 body{
@@ -74,4 +82,22 @@ body{
     justify-content: space-around;
     align-items: center;
     border-radius: 50px;
+}
+
+.animacion-alerta{
+    width: 5rem;
+    height: 5rem;
+    background-color: red;
+    animation: animacion-alerta 2s ease;
+}
+
+@keyframes animacion-alerta {
+    0%{
+        transform: rotateZ(0deg);
+    }
+
+    100%{
+        transform: rotateZ(360deg);
+    }
+    
 }
