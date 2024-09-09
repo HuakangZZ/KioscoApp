@@ -29,6 +29,32 @@ class ProductoService {
         return producto
     }
 
+    getProductoPorCondicion(condicion){
+        let productos = [];
+
+        fetch(BASE_URL + "/productosPorCondicion/" + condicion)
+        .then((response) => response.json())
+        .then((data) => {productos = data})
+
+        setTimeout(() => {
+            return productos
+        }, 50);
+    }
+
+    postProducto(producto){
+
+        const request = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(producto)
+        }
+        fetch(BASE_URL + "/productos", request)
+        .then((resp) => resp.json())
+
+
+        console.log("Esto me devuelve: ");
+    }
+
 }
 
 export default new ProductoService();

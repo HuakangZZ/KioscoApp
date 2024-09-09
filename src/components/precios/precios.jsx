@@ -12,64 +12,6 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { IoIosArrowDown } from 'react-icons/io';
 import { FiRefreshCcw } from 'react-icons/fi';
 
-const producto1 = {
-    id:1,
-    nombre: "agua",
-    stock: 2,
-    precio:250,
-    ultimaModificacion:[2024, 5, 8],
-    codigoDeBarras: 1234567
-}
-
-const producto2 = {
-    id:2,
-    nombre: "pan",
-    stock: 2,
-    precio:250,
-    ultimaModificacion:[2024,5,8],
-    codigoDeBarras: 1234567
-}
-const producto3 = {
-    id:3,
-    nombre: "pan",
-    stock: 2,
-    precio:250,
-    ultimaModificacion:[2024,5,8],
-    codigoDeBarras: 1234567
-}
-const producto4 = {
-    id:4,
-    nombre: "pan",
-    stock: 2,
-    precio:250,
-    ultimaModificacion:[2024,5,8],
-    codigoDeBarras: 1234567
-}
-const producto5 = {
-    id:5,
-    nombre: "pan",
-    stock: 2,
-    precio:250,
-    ultimaModificacion:[2024,5,8],
-    codigoDeBarras: 1234567
-}
-const producto6 = {
-    id:6,
-    nombre: "pan",
-    stock: 2,
-    precio:250,
-    ultimaModificacion:[2024,5,8],
-    codigoDeBarras: 1234567
-}
-const producto7 = {
-    id:7,
-    nombre: "pan",
-    stock: 2,
-    precio:250,
-    ultimaModificacion:[2024,5,8],
-    codigoDeBarras: 1234567
-}
-
 function cambiarNombre(nombre){
     const select = document.getElementsByClassName('select');
     if(nombre != null && nombre != undefined){
@@ -116,11 +58,11 @@ function sacarAnimacionIconoRefresh(){
 
 function Precios({cargarNavBar}) {
     //let productos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
-    const productos = ProductoService.getAllProducts();
+    let productos = ProductoService.getAllProducts();
     const opciones = document.getElementById('opciones');
 
     const obtenerProductoPorCodigo = (e) =>{
-        console.log(ProductoService.getProductoPorCodigo(e));
+        productos = ProductoService.getProductoPorCondicion(e)
     }
 
     const editar = () =>{
@@ -144,9 +86,10 @@ function Precios({cargarNavBar}) {
                         type="text"
                         placeholder="CODIGO DE BARRAS / NOMBRE / CATEGORIA"
                         className=" mr-sm-2  buscador"
+                        onChange={(e) => {obtenerProductoPorCodigo(e.target.value.toString())}}
                         />
                     </Col>
-                    <button className='buscar-precio' onClick={()=>obtenerProductoPorCodigo(1234567)}>BUSCAR</button>
+                    <button className='buscar-precio'>BUSCAR</button>
                 </Form>
             </div>
             <div className="contenedor-select">

@@ -11,3 +11,12 @@ body{
     font-size: 16px;
     background-color: #FFCAFE;
 }
+
+body::-webkit-scrollbar{
+    width: 1rem;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: #D34EA0;
+    border-radius: 1rem;
+}

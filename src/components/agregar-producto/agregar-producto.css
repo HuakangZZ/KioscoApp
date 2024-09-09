@@ -78,4 +78,16 @@
     overflow: auto;
     height: 45rem;
     padding: 0 1rem;
+    background-color: #e053aa41;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.scroll-inputs::-webkit-scrollbar{
+    width: 1rem;
+}
+
+.scroll-inputs::-webkit-scrollbar-thumb{
+    background-color: #D34EA0;
+    border-radius: 1rem;
 }

@@ -15,7 +15,7 @@ function PantallaBuenLogueo() {
   }
 
   return (
-    <div className='contenedor-botones' onMouseMoveCapture={(e)=>{console.log('e', e)}}>
+    <div className='contenedor-botones'>
       <Link to={"/precios"} className='boton-seccion' id='boton1' onMouseDown={(e)=>{animacion(e.target)}} onMouseUpCapture={(e)=>{soltar(e.target)}}>Listado de Precios</Link>
       <Link to={"/agregar-producto"} className='boton-seccion' id='boton2' onMouseDown={(e)=>{animacion(e.target)}} onMouseUpCapture={(e)=>{soltar(e.target)}}>Agregar Producto</Link>
       <Link to={""} className='boton-seccion' id='boton3' onMouseDown={(e)=>{animacion(e.target)}} onMouseUpCapture={(e)=>{soltar(e.target)}}>Consultar Proveedor</Link>
