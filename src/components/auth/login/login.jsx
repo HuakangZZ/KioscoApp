@@ -9,7 +9,7 @@ function Modal({valorModal, mostrarModal}){
     if (valorModal) {
         return <div className="contenedorDialog">
                 <div className='alerta' id="alert-dialog">
-                    <div className='animacion-alerta'></div>
+                <div className='animacion-alerta'></div>
                     <p>¡ALGO SALIO MAL!</p>
                     <Button variant='primary' className='color-boton' onClick={() =>{mostrarModal(false)}}>Reintentar</Button>
                 </div>

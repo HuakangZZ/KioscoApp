@@ -3,6 +3,11 @@ import './agregar-producto.css'
 import proximamente from "../../assets/proximamente.png";
 
 function AgregarProducto({cargarNavBar}) {
+
+    const productoACargar = {
+
+    }
+
     
     useEffect(() =>{
         cargarNavBar(true)
@@ -11,25 +16,35 @@ function AgregarProducto({cargarNavBar}) {
     return (
         <div className='contenedor-agregar-producto'>
             <div className="contenedor-inputs-post">
-                <div className="contenedor-input-post">
-                    <h2 className='titulo-input-post'>Nombre del producto</h2>
-                    <input type="text" className='input-post' placeholder='Ej.Queso tybo' />
+                <div className='scroll-inputs'>
+                    <div className="contenedor-input-post">
+                        <h2 className='titulo-input-post'>Nombre del producto</h2>
+                        <input type="text" className='input-post' placeholder='Ej.Queso tybo' />
+                    </div>
+                    <div className="contenedor-input-post">
+                        <h2 className='titulo-input-post'>Cantidad de productos disponibles</h2>
+                        <input type="text" className='input-post' placeholder='Ej.10' />
+                    </div>
+                    <div className="contenedor-input-post">
+                        <h2 className='titulo-input-post'>Precio del producto</h2>
+                        <input type="text" className='input-post' placeholder='Ej.8000' />
+                    </div>
+                    <div className="contenedor-input-post">
+                        <h2 className='titulo-input-post'>Categoria del producto</h2>
+                        <input type="text" className='input-post' placeholder='Ej.Quesos' />
+                    </div>
+                    <div className="contenedor-input-post">
+                        <h2 className='titulo-input-post'>Codigo de barras</h2>
+                        <input type="text" className='input-post' placeholder='Ej.123456789' />
+                    </div>
+                    <div className="contenedor-input-post">
+                        <h2 className='titulo-input-post'>Proveedor</h2>
+                        <input type="text" className='input-post' placeholder='Ej.Silvia-Golosinas' />
+                    </div>
                 </div>
-                <div className="contenedor-input-post">
-                    <h2 className='titulo-input-post'>Cantidad de productos disponibles</h2>
-                    <input type="text" className='input-post' placeholder='Ej.10' />
-                </div>
-                <div className="contenedor-input-post">
-                    <h2 className='titulo-input-post'>Precio del producto</h2>
-                    <input type="text" className='input-post' placeholder='Ej.8000' />
-                </div>
-                <div className="contenedor-input-post">
-                    <h2 className='titulo-input-post'>Categoria del producto</h2>
-                    <input type="text" className='input-post' placeholder='Ej.Quesos' />
-                </div>
-                <div className="contenedor-input-post">
-                    <h2 className='titulo-input-post'>Codigo de barras</h2>
-                    <input type="text" className='input-post' placeholder='Ej.123456789' />
+                    
+                <div className='contenedor-boton-registrar-producto'>
+                    <button className='boton-registrar-producto'>Registrar</button>
                 </div>
             </div>
 

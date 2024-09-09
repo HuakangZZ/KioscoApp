@@ -18,17 +18,7 @@ function mostrarHeader(userLogin) {
                 <Nav className="separacion">
                     <Link to={"/precios"} className='link-nabvar nav-link'>Precios</Link>
                     <Link to={"/calculadora"} className='link-nabvar nav-link'>Calculadora</Link>
-                    <NavDropdown title="Acciones" id="basic-nav-dropdown" className='link-nabvar'>
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                        Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                    </NavDropdown.Item>
-                    </NavDropdown>
+                    <Link to={"/agregar-producto"} className='link-nabvar nav-link'>Agregar Producto</Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

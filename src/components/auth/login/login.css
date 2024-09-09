@@ -85,19 +85,23 @@ body{
 }
 
 .animacion-alerta{
-    width: 5rem;
-    height: 5rem;
-    background-color: red;
-    animation: animacion-alerta 2s ease;
+    width: 7rem;
+    height: 18.5rem;
+    background-image: url(../../../assets/Alerta.svg);
+    background-position: center;
+    background-size: cover;
+    animation: animacion-alerta 1.5s ease;
 }
 
 @keyframes animacion-alerta {
     0%{
-        transform: rotateZ(0deg);
+        transform: rotateY(0deg);
+        opacity: 0;
     }
 
     100%{
-        transform: rotateZ(360deg);
+        transform: rotateY(360deg);
+        opacity: 100;
     }
     
 }

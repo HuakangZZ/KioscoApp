@@ -4,10 +4,6 @@
     padding: 40px;
 }
 
-.contenedor-inputs-post{
-    
-}
-
 .titulo-input-post{
     color: white;
     font-weight: bold;
@@ -52,9 +48,34 @@
 .boton-imagen-post{
     border: none;
     background-color: #FF88E1;
-    padding: 15px;
+    padding: .5rem 2rem;
+    padding-bottom: .25rem;
     border-radius: 20px;
     font-family: "Jomhuria", serif;
     font-size: 35px;
     color: #D34EA0;
+}
+
+.contenedor-boton-registrar-producto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.boton-registrar-producto{
+    border: none;
+    background-color: #FF88E1;
+    padding: .5rem 2rem;
+    padding-bottom: .25rem;
+    border-radius: 20px;
+    font-family: "Jomhuria", serif;
+    font-size: 35px;
+    color: #D34EA0;
+}
+
+.scroll-inputs{
+    overflow: auto;
+    height: 45rem;
+    padding: 0 1rem;
 }
