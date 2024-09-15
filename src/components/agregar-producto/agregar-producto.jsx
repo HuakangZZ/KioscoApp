@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './agregar-producto.css'
 import proximamente from "../../assets/proximamente.png";
 import ProductoService from '../../services/ProductoService';
+import BASE_URL from '../../services/BaseUrl';
 
 const productoACargar = {
     nombre:"",
@@ -13,6 +14,31 @@ const productoACargar = {
 }
 
 function AgregarProducto({cargarNavBar}) {
+
+    const [categorias, setCategorias] = useState([]);
+
+    const showDataCategoria = async(e) => {
+        if(e != '' && e != null && e != undefined){
+            let response = await fetch(BASE_URL + "/categoriasRegistradasPorCondicion/" + e);
+            let data = await response.json();
+            setCategorias(data);
+        }
+        else{
+            setCategorias([]);
+        }
+        console.log(categorias);
+    }
+
+    const showDataCategoriaFocus = async() =>{
+        let response = await fetch(BASE_URL + "/categoriasRegistradas");
+        let data = await response.json();
+        setCategorias(data);
+    }
+
+    const botonSetearCategoria = () =>{
+        const inputCategoria = document.getElementById('categori')
+        console.log(inputCategoria)
+    }
     
     useEffect(() =>{
         cargarNavBar(true)
@@ -36,7 +62,16 @@ function AgregarProducto({cargarNavBar}) {
                     </div>
                     <div className="contenedor-input-post">
                         <h2 className='titulo-input-post'>Categoria del producto</h2>
-                        <input type="text" className='input-post' placeholder='Ej.Quesos' onChange={(e) =>{ productoACargar.categoria = e.target.value.toString()}}/>
+                        <input id='categori' type="text" className='input-post' placeholder='Ej.Quesos' onBlur={() => {setCategorias([])}} onFocus={() => {showDataCategoriaFocus()}} onChange={(e) =>{ showDataCategoria(e.target.value.toString(), productoACargar.categoria = e.target.value.toString())}}/>
+                            {categorias.length > 0 && (
+                                <ul style={{width:"100%",backgroundColor:"red", overflow:'auto'}}>
+                                    {categorias.map(cate => (
+                                        <li key={categorias.indexOf(cate)}>
+                                            <button onClick={() => {botonSetearCategoria()}}>{cate}</button>
+                                        </li>
+                                    ))}
+                                </ul>
+                        )}
                     </div>
                     <div className="contenedor-input-post">
                         <h2 className='titulo-input-post'>Codigo de barras</h2>

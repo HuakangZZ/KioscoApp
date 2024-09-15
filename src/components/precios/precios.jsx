@@ -58,11 +58,23 @@ function sacarAnimacionIconoRefresh(){
 
 function Precios({cargarNavBar}) {
     //let productos = [producto1,producto2,producto3,producto4,producto5,producto6,producto7];
-    let productos = ProductoService.getAllProducts();
-    const opciones = document.getElementById('opciones');
+    const [lista, setLista] = useState([])
 
-    const obtenerProductoPorCodigo = (e) =>{
-        productos = ProductoService.getProductoPorCondicion(e)
+    const showData = async () =>{
+        const response = await fetch("http://localhost:8096/api/productos")
+        const data = await response.json()
+        setLista(data);
+    }
+
+    const actualizarData = async (condicion) =>{
+        if(condicion != null && condicion != '' && condicion != undefined){
+            let response = await fetch("http://localhost:8096/api/productosPorCondicion/" + condicion)
+            let data = await response.json();
+            setLista(data);
+        }
+        else{
+            showData();
+        }
     }
 
     const editar = () =>{
@@ -75,6 +87,7 @@ function Precios({cargarNavBar}) {
 
     useEffect(()=>{
         cargarNavBar(true);
+        showData();
     },[cargarNavBar])
     
     return (
@@ -86,10 +99,10 @@ function Precios({cargarNavBar}) {
                         type="text"
                         placeholder="CODIGO DE BARRAS / NOMBRE / CATEGORIA"
                         className=" mr-sm-2  buscador"
-                        onChange={(e) => {obtenerProductoPorCodigo(e.target.value.toString())}}
+                        onChange={(e) => {actualizarData(e.target.value)}}
                         />
                     </Col>
-                    <button className='buscar-precio'>BUSCAR</button>
+                    <button type='button' className='buscar-precio' onClick={() =>{productos = ProductoService.getProductoPorCondicion(producto)}}>BUSCAR</button>
                 </Form>
             </div>
             <div className="contenedor-select">
@@ -133,7 +146,7 @@ function Precios({cargarNavBar}) {
                     </thead>
                                 
                     <tbody>
-                    {productos.map((producto)=>(
+                    {lista.map((producto)=>(
                         <tr key={producto.id}>
                             <td>{producto.id}</td>
                             <td>{producto.nombre}</td>

@@ -38,7 +38,7 @@ class ProductoService {
 
         setTimeout(() => {
             return productos
-        }, 50);
+        }, 70);
     }
 
     postProducto(producto){
